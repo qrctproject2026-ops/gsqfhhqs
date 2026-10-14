@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fff7f1">
+  <meta name="description" content="A little corner of the internet made to welcome Sowmya.">
+  <title>Welcome, Sowmya ✨</title>
+  <style>
+    :root{--ink:#34233f;--muted:#756779;--pink:#f6a6bb;--peach:#ffd7b5;--lilac:#d9c9ff;--cream:#fffaf6}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;font-family:ui-rounded,"Segoe UI",system-ui,-apple-system,sans-serif;color:var(--ink);background:radial-gradient(ellipse at 12% 15%,#ffe2e8 0,transparent 34%),radial-gradient(ellipse at 88% 80%,#e5ddff 0,transparent 35%),linear-gradient(135deg,#fff9f4,#fff3ee 52%,#f8f4ff);overflow-x:hidden}
+    .sparkle{position:fixed;pointer-events:none;opacity:.65;animation:float 7s ease-in-out infinite;font-size:1.35rem}
+    .s1{top:12%;left:8%}.s2{top:23%;right:11%;animation-delay:1s}.s3{bottom:16%;left:13%;animation-delay:2s}.s4{bottom:24%;right:8%;animation-delay:3s}
+    main{min-height:100vh;display:grid;place-items:center;padding:34px 18px;position:relative}
+    .card{width:min(760px,100%);padding:clamp(28px,6vw,64px);text-align:center;border:1px solid #ffffffc9;border-radius:32px;background:#ffffffa8;box-shadow:0 24px 80px #6c46651a;backdrop-filter:blur(14px);animation:appear .9s ease both}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:999px;background:#fff;color:#a14f78;font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;font-weight:750}
+    .flower{font-size:clamp(3rem,9vw,5rem);margin:22px 0 6px;filter:drop-shadow(0 7px 12px #e89cb54a)}
+    h1{font-size:clamp(2.8rem,9vw,5.7rem);line-height:.98;letter-spacing:-.065em;margin:12px 0 18px;font-weight:850}
+    h1 span{display:block;background:linear-gradient(100deg,#cf648d,#9a75d8 60%,#e69b75);-webkit-background-clip:text;background-clip:text;color:transparent}
+    .intro{max-width:510px;margin:0 auto;color:var(--muted);font-size:clamp(1rem,2.4vw,1.16rem);line-height:1.8}
+    .divider{width:64px;height:4px;border-radius:9px;background:linear-gradient(90deg,var(--pink),var(--lilac));margin:28px auto}
+    .note{font-family:Georgia,serif;font-style:italic;font-size:clamp(1.1rem,3vw,1.45rem);line-height:1.6;margin:0 auto 30px;max-width:500px}
+    button{border:0;border-radius:999px;padding:15px 24px;background:var(--ink);color:white;font:inherit;font-weight:700;cursor:pointer;box-shadow:0 9px 22px #34233f25;transition:transform .2s,box-shadow .2s}
+    button:hover{transform:translateY(-3px);box-shadow:0 14px 28px #34233f30}
+    button:focus-visible{outline:3px solid #b28be8;outline-offset:4px}
+    #message{min-height:30px;margin:18px 0 0;color:#945779;font-weight:650}
+    footer{font-size:.82rem;color:#998a9d;margin-top:28px}
+    .heart{color:#d66d95}
+    @keyframes appear{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+    @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-13px) rotate(8deg)}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+  </style>
+</head>
+<body>
+  <span class="sparkle s1" aria-hidden="true">✦</span><span class="sparkle s2" aria-hidden="true">✿</span>
+  <span class="sparkle s3" aria-hidden="true">✧</span><span class="sparkle s4" aria-hidden="true">♡</span>
+  <main>
+    <section class="card" aria-labelledby="welcome-title">
+      <div class="eyebrow"><span aria-hidden="true">✧</span> a little place just for you <span aria-hidden="true">✧</span></div>
+      <div class="flower" aria-hidden="true">🌷</div>
+      <h1 id="welcome-title">Welcome,<span>Sowmya!</span></h1>
+      <p class="intro">A little reminder that you deserve good things, gentle days, big dreams, and plenty of reasons to smile.</p>
+      <div class="divider"></div>
+      <p class="note">“May this be the beginning of something beautiful.”</p>
+      <button id="surprise" type="button">A little surprise ✨</button>
+      <p id="message" role="status" aria-live="polite"></p>
+      <footer>Made with <span class="heart">♥</span> and a little sparkle</footer>
+    </section>
+  </main>
+  <script>
+    const messages = [
+      "You are capable of more than you know. 🌟",
+      "Take a breath. You’re doing better than you think. 🌸",
+      "Your story is still unfolding—and there are lovely chapters ahead. 📖",
+      "Today, remember to be as kind to yourself as you are to others. 💗",
+      "One small step at a time. You’ve got this! ✨"
+    ];
+    let last = -1;
+    document.getElementById("surprise").addEventListener("click", () => {
+      let next;
+      do { next = Math.floor(Math.random() * messages.length); } while (next === last && messages.length > 1);
+      last = next;
+      document.getElementById("message").textContent = messages[next];
+    });
+  </script>
+</body>
+</html>
